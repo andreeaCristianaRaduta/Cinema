@@ -67,7 +67,7 @@ public class User {
         return password;
     }
 
-    public boolean inDataBase( String email ){
+    /*public boolean inDataBase( String email ){
         //to be continued...
     }
 
@@ -80,5 +80,5 @@ public class User {
 
         else System.out.println("User exists! Try login.");
     }
-
+*/
 }

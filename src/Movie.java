@@ -8,8 +8,8 @@ public class Movie {
     private Date date;
     private Room room;
 
-    enum format{
-        twoD, threeD, IMAX, fourDX;
+    private enum format{
+         twoD , three, IMAX, fourDX;
     }
 
     public Movie( String name, format aFormat, Double price, Date date, Room room) {
@@ -69,9 +69,6 @@ public class Movie {
         this.price = price;
     }
 
-    public void addMovie(){
-        Movie movie = new Movie( name, aFormat, price,date, room); //Nu cred ca e corect sa avem un user cand aadaugam un nou film, dar am pus user susu pt ca
-        //adaugam in db                                                     //fiecare utilizator vede din perspectiva lui si primeste pretul in functie de tip
-    }
+
 
 }
