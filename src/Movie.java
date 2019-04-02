@@ -71,13 +71,13 @@ public class Movie { //un film trebuie sa aiba o data si o ora
     }
 
     public Double getPrice() {
-        if( user.getType() == User.type.child )
+        if( user.isChild() == true )
             return price - 0.5*price;
 
-        else if( user.getType() == User.type.student )
+        else if( user.isStudent() == true )
             return price - 0.25*price;
 
-        else if( user.getType() == User.type.elder )
+        else if( user.isElder() == true )
             return price - 0.30*price;
 
         return price;

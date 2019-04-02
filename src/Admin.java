@@ -3,7 +3,9 @@ import jdk.swing.interop.SwingInterOpUtils;
 import java.util.Scanner;
 
  public class Admin {
-
+     private Room room;
+     private Movie movie;
+     private Reservation reservation;
      //public void addRoom()
 
      //public editRoom()
@@ -25,11 +27,5 @@ import java.util.Scanner;
 
     }
 
-     public void ocupatingSeats(int seats){ //o fac voi ca sa o apelez cand fac o rezervare si sa-mi arunce o rezervare pentru atunci cand nu mai sunt locuri
-         try{
-             while(room.getNumberOfSeats() - nrOfSeatsOcupated > -1){
-                 nrOfSeatsOcupated+=reservation.get // trebuie un ob de tip rezervare de la care sa pot sa iau nr de locuri
-             }
-         }
-     }
+
  }
