@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinema", "root", "Java123.");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cinema?useSSL=false", "root", "Java123.");
             }catch (Exception e){
                 e.printStackTrace();
             }

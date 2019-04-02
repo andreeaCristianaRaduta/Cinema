@@ -1,18 +1,36 @@
 import java.util.Date;
 
-public class Movie {
+public class Movie { //un film trebuie sa aiba o data si o ora
     private User user;
     private String name;
     private Double price;
     public format aFormat;
     private Date date;
     private Room room;
+    private Integer id;
+    private Integer nrOfSeatsOcupated = 0;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getNrOfSeatsOcupated() {
+        return nrOfSeatsOcupated;
+    }
+
+    public void setNrOfSeatsOcupated(Integer nrOfSeatsOcupated) {
+        this.nrOfSeatsOcupated = nrOfSeatsOcupated;
+    }
 
     private enum format{
          twoD , three, IMAX, fourDX;
     }
 
-    public Movie( String name, format aFormat, Double price, Date date, Room room) {
+    public Movie( String name, format aFormat, Double price, Date date, Room room) { //pot sa nu-i dau eu id? sa si puna sg in baza de date??
         this.name = name;
         this.aFormat = aFormat;
         this.price = price;

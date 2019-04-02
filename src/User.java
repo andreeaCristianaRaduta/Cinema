@@ -11,6 +11,7 @@ public class User {
     public type aType;
 
     public User(String firstName, String lastName, Integer id, type aType, String email, String password) {
+        //putem sa pune boolean isChild, isStudent, isElder
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;

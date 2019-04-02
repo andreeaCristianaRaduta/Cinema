@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Reservation {
+public class Reservation { ///ne trebuie id la rezervare ca sa existe ceva unic pt PK
     private Date date;
     private Movie movie;
     private Integer numberOfPeople;
