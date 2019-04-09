@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
      public static void main(String[] args) {
         User user1 = new User();
-         user1.insertUserInDB();
-    }
+         //user1.insertUserInDB();
+        Admin admin = new Admin();
+        admin.addMovie();
+     }
  }

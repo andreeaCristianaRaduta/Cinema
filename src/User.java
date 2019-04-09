@@ -1,14 +1,19 @@
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
-public class User {
+ public class User {
+
     private String firstName, lastName;
     private Integer id;
     private String email;
     private String password;
-
+    private Reservation res;
+    private Movie movie;
     private boolean isStudent = false;
     private boolean isChild = false;
     private boolean isElder = false;
@@ -141,6 +146,38 @@ public class User {
         System.out.println("Inserted records into the table...");
 
     }
+    public void makeReservation(){
+        Connection conn = ConnectionConfiguration.getConnection();
+        Statement stmt = null;
+        Scanner sc = new Scanner(System.in);
+        String sql = "SELECT * PROM movie";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Integer option;
+        option= sc.nextInt();
+
+        System.out.println("How many people?");
+        res.setNumberOfPeople(sc.nextInt());
+
+        String sql2 = "INSERT INTO reservation  VALUES ( " + "\"" + option +
+                "\"" + "," + "\"" + movie.getDate() +
+                "\"" + "," + "\"" + movie.getName() +
+                "\"" + "," + "\"" + res.getNumberOfPeople() + "\"" + ") ";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+        //reservation.ocupatingSeats(reservation.getNumberOfPeople());
+    }
+
 /*
         else System.out.println("User exists! Try login.");
     }

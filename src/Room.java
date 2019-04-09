@@ -4,10 +4,9 @@ public class Room {
     private Integer [][] seats;
     private int numberOfSeats = 30;
 
-    public Room(String roomName, Integer[][] seats, Integer numberOfSeats) {
+    public Room(String roomName) {
         this.roomName = roomName;
-        this.seats = seats;
-        this.numberOfSeats = numberOfSeats;
+
     }
 
     public String getRoomName() {

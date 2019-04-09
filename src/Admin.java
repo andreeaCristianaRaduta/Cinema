@@ -1,11 +1,21 @@
 import jdk.swing.interop.SwingInterOpUtils;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
  public class Admin {
-     private Room room;
-     private Movie movie;
+     private ArrayList<Movie> movies = new ArrayList<>();
+     private ArrayList<Room> rooms = new ArrayList<>();
      private Reservation reservation;
+
      //public void addRoom()
 
      //public editRoom()
@@ -16,14 +26,43 @@ import java.util.Scanner;
 
 
     public void addMovie(){
+        Connection conn = ConnectionConfiguration.getConnection();
+        Statement stmt = null;
         Scanner sc = new Scanner(System.in); //Nu cred ca e corect sa avem un user cand aadaugam un nou film, dar am pus user susu pt ca
+        System.out.println("Id of the movie");
+        Integer id = sc.nextInt();
         System.out.println("Introduceti numele filmului:");
-        String nume = sc.next();
+        String name = sc.next();
+        System.out.println("Price:");
+        String priceS = sc.next();
+        Double price = Double.parseDouble(priceS);
         System.out.println("Introduceti formatul: twoD/threeD/fourDX/IMAX ");
-        //Movie.setFormat(sc.next());
+        String format = sc.next();
 
+        System.out.println("Date:");
+        String day = sc.next();
+        String hour = sc.next();
+        String date = day + " " + hour;
+        System.out.println("Room name");
+        String roomName = sc.next();
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-        //adaugam in db                                                     //fiecare utilizator vede din perspectiva lui si primeste pretul in functie de tip
+        String sql1 = " INSERT INTO movie  VALUES ( " + "\"" + id +
+                "\"" + "," + "\"" + name +
+                "\"" + "," + "\"" + price +
+                "\"" + "," + "\"" + format +
+                "\"" + "," + "\"" + date +
+                "\"" + "," + "\"" + roomName + "\"" + ") ";
+        try {
+            stmt.executeUpdate(sql1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

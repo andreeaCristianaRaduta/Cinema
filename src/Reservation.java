@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
  public class Reservation { ///ne trebuie id la rezervare ca sa existe ceva unic pt PK
@@ -5,11 +6,17 @@ import java.util.Date;
     private Movie movie;
     private Integer numberOfPeople;
 
-    public Reservation(Date date, Movie movie, Integer numberOfPeople) {
-        this.date = date;
-        this.movie = movie;
-        this.numberOfPeople = numberOfPeople;
-    }
+
+     public Reservation() {
+     }
+
+     public Reservation(Date date, Movie movie, Integer numberOfPeople) {
+         this.date = date;
+         this.movie = movie;
+         this.numberOfPeople = numberOfPeople;
+     }
+
+
 
     public Date getDate() {
         return date;
@@ -35,14 +42,12 @@ import java.util.Date;
         this.numberOfPeople = numberOfPeople;
     }
 
-    public void ocupatingSeats(int seats){ //o fac voi ca sa o apelez cand fac o rezervare si sa-mi arunce o rezervare pentru atunci cand nu mai sunt locuri
-        while(movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated() > -1 && (movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated()) >= seats )
+    public void ocupatingSeats(int seats) { //o fac voi ca sa o apelez cand fac o rezervare si sa-mi arunce o rezervare pentru atunci cand nu mai sunt locuri
+        while (movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated() > -1 && (movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated()) >= seats) {
             movie.setNrOfSeatsOcupated(movie.getNrOfSeatsOcupated() + seats);// trebuie un ob de tip rezervare de la care sa pot sa iau nr de locuri
+        }
     }
 
-    public void makeReservation(){
-        Reservation reservation = new Reservation(date, movie, numberOfPeople);
-        reservation.ocupatingSeats(numberOfPeople);
-    }
+
 
  }

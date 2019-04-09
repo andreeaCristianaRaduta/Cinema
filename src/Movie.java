@@ -4,7 +4,7 @@ public class Movie { //un film trebuie sa aiba o data si o ora
     private User user;
     private String name;
     private Double price;
-    public format aFormat;
+    public String format;
     private Date date;
     private Room room;
     private Integer id;
@@ -26,13 +26,11 @@ public class Movie { //un film trebuie sa aiba o data si o ora
         this.nrOfSeatsOcupated = nrOfSeatsOcupated;
     }
 
-    private enum format{
-         twoD , three, IMAX, fourDX;
-    }
 
-    public Movie( String name, format aFormat, Double price, Date date, Room room) { //pot sa nu-i dau eu id? sa si puna sg in baza de date??
+    public Movie(Integer id,  String name,  Double price, String aFormat, Date date, Room room) { //pot sa nu-i dau eu id? sa si puna sg in baza de date??
+        this.id=id;
         this.name = name;
-        this.aFormat = aFormat;
+        this.format = aFormat;
         this.price = price;
         this.date = date;
         this.room = room;
@@ -62,12 +60,12 @@ public class Movie { //un film trebuie sa aiba o data si o ora
         this.name = name;
     }
 
-    public format getFormat() {
-        return aFormat;
+    public String getFormat() {
+        return format;
     }
 
-    public void setFormat(format aFormat) {
-        this.aFormat = aFormat;
+    public void setFormat(String aFormat) {
+        this.format = aFormat;
     }
 
     public Double getPrice() {
