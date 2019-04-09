@@ -1,7 +1,6 @@
 public class Room {
 
     private String roomName;
-    private Integer [][] seats;
     private int numberOfSeats = 30;
 
     public Room(String roomName) {
@@ -15,14 +14,6 @@ public class Room {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
-    }
-
-    public Integer[][] getSeats() {
-        return seats;
-    }
-
-    public void setSeats(Integer[][] seats) {
-        this.seats = seats;
     }
 
     public Integer getNumberOfSeats() {

@@ -16,9 +16,68 @@ import java.util.Scanner;
      private ArrayList<Room> rooms = new ArrayList<>();
      private Reservation reservation;
 
-     //public void addRoom()
+     public void addRoom(){
+         Connection conn = ConnectionConfiguration.getConnection();
+         Statement stmt = null;
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Room name");
+         String roomName = sc.next();
+         int nrOfS = 30;
+         try {
+             stmt = conn.createStatement();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
 
-     //public editRoom()
+         String sql = " INSERT INTO room  VALUES ( " + "\"" + roomName +
+                 "\"" + "," + "\"" + nrOfS + "\"" + ") ";
+         try {
+             stmt.executeUpdate(sql);
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+     }
+
+     public void editRoom(){
+         Connection conn = ConnectionConfiguration.getConnection();
+         Statement stmt = null;
+         Scanner sc = new Scanner(System.in);
+         System.out.println("What would you like to edit? seats-2 / name-1");
+         Integer opt;
+         opt = sc.nextInt();
+         try {
+             stmt = conn.createStatement();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+         switch(opt){
+             case 1:
+                 System.out.println("Ex-name:");
+                 String exName = sc.next();
+                 System.out.println("New-name");
+                 String newName = sc.next();
+                 String sql = " UPDATE room SET name= " + "\"" + newName + "\"" + "WHERE name = " + "\"" + exName + "\"";
+                 try {
+                     stmt.executeUpdate(sql);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+             case 2:
+                 System.out.println("Room name:");
+                 String name = sc.next();
+                 System.out.println("New nr of Seats");
+                 Integer newNr = sc.nextInt();
+                 String sql1 = " UPDATE room SET nrOfSeats= " + "\"" + newNr + "\"" + "WHERE name = " + "\"" + name + "\"";
+                 try {
+                     stmt.executeUpdate(sql1);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+         }
+
+     }
 
      //public void deleteMovie()
 
