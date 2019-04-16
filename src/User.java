@@ -115,36 +115,30 @@ import java.util.Scanner;
         lastName = sc.next();
         try {
             stmt = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println(" Are you child?(Y/N) ");
-        String type = sc.next();
-        if( type == "Y" ) isChild = true;
-        else isChild = false;
+            System.out.println(" Are you child?(Y/N) ");
+            String type = sc.next();
+            if( type == "Y" ) isChild = true;
+            else isChild = false;
 
-        System.out.println("Are you student?(Y/N)");
-        type = sc.next();
-        if( type == "Y" ) isStudent = true;
-        else isStudent = false;
+            System.out.println("Are you student?(Y/N)");
+            type = sc.next();
+            if( type == "Y" ) isStudent = true;
+            else isStudent = false;
 
-        System.out.println("Are you elder?(Y/N)");
-        type = sc.next();
-        if( type == "Y" ) isElder = true;
-        else isElder = false;
+            System.out.println("Are you elder?(Y/N)");
+            type = sc.next();
+            if( type == "Y" ) isElder = true;
+            else isElder = false;
 
-        String sql = " INSERT INTO user  VALUES ( " + "\"" + firstName +
-                        "\"" + "," + "\"" + lastName +
-                        "\"" + "," + "\"" + email +
-                        "\"" + "," + "\"" + password + "\"" + ") ";
-        try {
+            String sql = " INSERT INTO user  VALUES ( " + "\"" + firstName +
+                    "\"" + "," + "\"" + lastName +
+                    "\"" + "," + "\"" + email +
+                    "\"" + "," + "\"" + password + "\"" + ") ";
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         System.out.println("Inserted records into the table...");
-
     }
     public void makeReservation(){
         Connection conn = ConnectionConfiguration.getConnection();
@@ -153,28 +147,20 @@ import java.util.Scanner;
         String sql = "SELECT * PROM movie";
         try {
             stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            Integer option;
+            option= sc.nextInt();
 
-        Integer option;
-        option= sc.nextInt();
+            System.out.println("How many people?");
+            res.setNumberOfPeople(sc.nextInt());
 
-        System.out.println("How many people?");
-        res.setNumberOfPeople(sc.nextInt());
-
-        String sql2 = "INSERT INTO reservation  VALUES ( " + "\"" + option +
-                "\"" + "," + "\"" + movie.getDate() +
-                "\"" + "," + "\"" + movie.getName() +
-                "\"" + "," + "\"" + res.getNumberOfPeople() + "\"" + ") ";
-        try {
+            String sql2 = "INSERT INTO reservation  VALUES ( " + "\"" + option +
+                    "\"" + "," + "\"" + movie.getDate() +
+                    "\"" + "," + "\"" + movie.getName() +
+                    "\"" + "," + "\"" + res.getNumberOfPeople() + "\"" + ") ";
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
         //reservation.ocupatingSeats(reservation.getNumberOfPeople());
     }
 

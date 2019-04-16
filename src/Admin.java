@@ -17,22 +17,22 @@ import java.util.Scanner;
      private Reservation reservation;
 
      public void addRoom(){
-         Connection conn = ConnectionConfiguration.getConnection();
-         Statement stmt = null;
-         Scanner sc = new Scanner(System.in);
-         System.out.println("Room name");
-         String roomName = sc.next();
-         int nrOfS = 30;
          try {
-             stmt = conn.createStatement();
-         } catch (SQLException e) {
-             e.printStackTrace();
-         }
 
-         String sql = " INSERT INTO room  VALUES ( " + "\"" + roomName +
-                 "\"" + "," + "\"" + nrOfS + "\"" + ") ";
-         try {
+             Connection conn = ConnectionConfiguration.getConnection();
+             Statement stmt = null;
+             Scanner sc = new Scanner(System.in);
+             System.out.println("Room name");
+             String roomName = sc.next();
+             int nrOfS = 30;
+
+             stmt = conn.createStatement();
+
+             String sql = " INSERT INTO room  VALUES ( " + "\"" + roomName +
+                     "\"" + "," + "\"" + nrOfS + "\"" + ") ";
+
              stmt.executeUpdate(sql);
+
          } catch (SQLException e) {
              e.printStackTrace();
          }
@@ -106,23 +106,17 @@ import java.util.Scanner;
         String roomName = sc.next();
         try {
             stmt = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        String sql1 = " INSERT INTO movie  VALUES ( " + "\"" + id +
-                "\"" + "," + "\"" + name +
-                "\"" + "," + "\"" + price +
-                "\"" + "," + "\"" + format +
-                "\"" + "," + "\"" + date +
-                "\"" + "," + "\"" + roomName + "\"" + ") ";
-        try {
+            String sql1 = " INSERT INTO movie  VALUES ( " + "\"" + id +
+                    "\"" + "," + "\"" + name +
+                    "\"" + "," + "\"" + price +
+                    "\"" + "," + "\"" + format +
+                    "\"" + "," + "\"" + date +
+                    "\"" + "," + "\"" + roomName + "\"" + ") ";
             stmt.executeUpdate(sql1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
 
