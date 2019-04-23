@@ -9,7 +9,8 @@ import java.sql.SQLException;
         User user1 = new User();
         // user1.insertUserInDB();
         Admin admin = new Admin();
-        admin.addRoom();;
-        admin.editRoom();
+        //admin.addRoom();;
+        admin.editMovie();
+
      }
  }

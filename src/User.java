@@ -144,9 +144,9 @@ import java.util.Scanner;
         Connection conn = ConnectionConfiguration.getConnection();
         Statement stmt = null;
         Scanner sc = new Scanner(System.in);
-        String sql = "SELECT * PROM movie";
+        String sql = "SELECT * FROM movie";
         try {
-            stmt.executeUpdate(sql);
+            stmt.executeQuery(sql);
             Integer option;
             option= sc.nextInt();
 
@@ -157,7 +157,7 @@ import java.util.Scanner;
                     "\"" + "," + "\"" + movie.getDate() +
                     "\"" + "," + "\"" + movie.getName() +
                     "\"" + "," + "\"" + res.getNumberOfPeople() + "\"" + ") ";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql2);
         } catch (SQLException e) {
             e.printStackTrace();
         }

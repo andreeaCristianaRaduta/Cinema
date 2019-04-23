@@ -1,6 +1,7 @@
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
@@ -78,10 +79,122 @@ import java.util.Scanner;
          }
 
      }
+     public void deleteRoom(){
+         Connection conn = ConnectionConfiguration.getConnection();
+         Statement stmt = null;
+         Scanner sc = new Scanner(System.in);
+         String sql = "SELECT * from room";
 
-     //public void deleteMovie()
+         try {
+             stmt = conn.createStatement();
+             stmt.executeQuery(sql);
+             System.out.println("Numele salii pe care dorim s-o stergem:");
+             String option;
+             option = sc.next();
+             PreparedStatement pstm = conn.prepareStatement( "DELETE FROM cinema.room WHERE name = ?");
+             pstm.setString(1, option);
+             pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+     }
 
-     //public void editMovie()
+     public void deleteMovie(){
+         Connection conn = ConnectionConfiguration.getConnection();
+         Statement stmt = null;
+         Scanner sc = new Scanner(System.in);
+         String sql = "SELECT * from movie";
+         try {
+             stmt = conn.createStatement();
+             stmt.executeQuery(sql);
+             System.out.println("Numele filmului pe care dorim s-o stergem:");
+             String name;
+             name = sc.next();
+             PreparedStatement pstm = conn.prepareStatement( "DELETE FROM cinema.movie WHERE name = ?");
+             pstm.setString(1, name);
+             pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+     }
+
+     public void editMovie(){
+         Connection conn = ConnectionConfiguration.getConnection();
+         Statement stmt = null;
+         Scanner sc = new Scanner(System.in);
+         System.out.println("What would you like to edit? ");
+         System.out.println("1 - name/ 2 - price / 3 - format / 4 - data / 5 - room");
+         Integer opt = sc.nextInt();
+         try {
+             stmt = conn.createStatement();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+         switch (opt){
+             case 1:
+                 System.out.println("Id:");
+                 Integer theId = sc.nextInt();
+                 System.out.println("New-name");
+                 String newName = sc.next();
+                 String sql = " UPDATE movie SET name= " + "\"" + newName + "\"" + "WHERE id = " + "\"" + theId + "\"";
+                 try {
+                     stmt.executeUpdate(sql);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+             case 2:
+                 System.out.println("Id:");
+                 theId = sc.nextInt();
+                 System.out.println("New price");
+                 Double newPrice = sc.nextDouble();
+                 String sql1 = " UPDATE movie SET price= " + "\"" + newPrice + "\"" + "WHERE id = " + "\"" + theId + "\"";
+                 try {
+                     stmt.executeUpdate(sql1);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+             case 3:
+                 System.out.println("Id:");
+                 theId = sc.nextInt();
+                 System.out.println("New format");
+                 String newFormat = sc.next();
+                 String sql2 = " UPDATE movie SET format= " + "\"" + newFormat + "\"" + "WHERE id = " + "\"" + theId + "\"";
+                 try {
+                     stmt.executeUpdate(sql2);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+             case 4:
+                 System.out.println("Id:");
+                 theId = sc.nextInt();
+                 System.out.println("New date");
+                 String day = sc.next();
+                 String hour = sc.next();
+                 String newDate = day + " " + hour;
+                 String sql3 = " UPDATE movie SET date= " + "\"" + newDate + "\"" + "WHERE id = " + "\"" + theId + "\"";
+                 try {
+                     stmt.executeUpdate(sql3);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+             case 5:
+                 System.out.println("Id:");
+                 theId = sc.nextInt();
+                 System.out.println("New room");
+                 String newRoom = sc.next();
+                 String sql4 = " UPDATE movie SET room= " + "\"" + newRoom + "\"" + "WHERE id = " + "\"" + theId + "\"";
+                 try {
+                     stmt.executeUpdate(sql4);
+                 } catch (SQLException e) {
+                     e.printStackTrace();
+                 }
+                 break;
+         }
+     }
 
 
     public void addMovie(){
@@ -107,7 +220,7 @@ import java.util.Scanner;
         try {
             stmt = conn.createStatement();
 
-            String sql1 = " INSERT INTO movie  VALUES ( " + "\"" + id +
+            String sql1 = " INSERT INTO movie  VALUES ( " + "\"" + id +      //format data : 2019-04-23 20:00:00
                     "\"" + "," + "\"" + name +
                     "\"" + "," + "\"" + price +
                     "\"" + "," + "\"" + format +
