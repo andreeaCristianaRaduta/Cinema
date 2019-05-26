@@ -21,7 +21,7 @@
     <input type="submit" value="Show movies"/>
 </form>
 
-<div id="result1" class="result">
+<div id="result0" class="result">
     <pre>
         ${requestScope.movies}
     </pre>
@@ -34,7 +34,7 @@
             <input type="submit" value="Show the ids"/>
         </form>
 
-        <div id="result2" class="result">
+        <div id="result1" class="result">
             <pre>
                 ${requestScope.ids}
             </pre>
@@ -64,7 +64,7 @@
             <input type="submit" value="Show the formats"/>
         </form>
 
-        <div id="result2" class="result">
+        <div id="result4" class="result">
             <pre>
                 ${requestScope.formats}
             </pre>
@@ -73,16 +73,17 @@
             <input type="submit" value="Show the dates"/>
         </form>
 
-        <div id="result2" class="result">
+        <div id="result5" class="result">
             <pre>
                 ${requestScope.dates}
             </pre>
         </div>
-
-        <%--<form action="http://localhost:8080/Cinema_war_exploded/movies", method="post">--%>
-            <%--<input type="submit" value="See top" />--%>
-        <%--</form>--%>
+        <form action="http://localhost:8080/Cinema_war_exploded/seeTop", method="post">
+            <input type="submit" value="See top" />
+        </form>
     </div>
+
+
 
 
 </body>
