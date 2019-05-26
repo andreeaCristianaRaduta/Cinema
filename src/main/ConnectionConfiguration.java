@@ -21,15 +21,15 @@ public class ConnectionConfiguration {
     public static ArrayList<String> getAllUsers(){
         try(PreparedStatement statement = getConnection().prepareStatement("SELECT email from user")){
             ResultSet resultSet = statement.executeQuery();
-            ArrayList<String> usernames = new ArrayList<>();
+            ArrayList<String> emails = new ArrayList<>();
             while(resultSet.next()){
 
                 String email = resultSet.getString("email");
-                usernames.add(email);
+                emails.add(email);
             }
             resultSet.close();
-            close();
-            return usernames;
+            //System.out.println(emails);
+            return emails;
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -45,7 +45,6 @@ public class ConnectionConfiguration {
             if(resultSet.next())
                 password =  resultSet.getString("password");
             resultSet.close();
-            close();
             return password;
         } catch(SQLException e){
             e.printStackTrace();

@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<div class="quizzes-img">
+<div class="">
 </div>
 <br>
 <form action="http://localhost:8080/Cinma_war_exploded/movies" method="post">

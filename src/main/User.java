@@ -109,20 +109,20 @@ import java.util.Scanner;
 //            lastName = sc.next();
             try {
                 stmt = conn.createStatement();
-                System.out.println(" Are you child?(Y/N) ");
-                String type = sc.next();
-                if( type == "Y" ) isChild = true;
-                else isChild = false;
+//                System.out.println(" Are you child?(Y/N) ");
+//                String type = sc.next();
+//                if( type == "Y" ) isChild = true;
+//                else isChild = false;
 
-                System.out.println("Are you student?(Y/N)");
-                type = sc.next();
-                if( type == "Y" ) isStudent = true;
-                else isStudent = false;
+//                System.out.println("Are you student?(Y/N)");
+//                type = sc.next();
+//                if( type == "Y" ) isStudent = true;
+//                else isStudent = false;
 
-                System.out.println("Are you elder?(Y/N)");
-                type = sc.next();
-                if( type == "Y" ) isElder = true;
-                else isElder = false;
+//                System.out.println("Are you elder?(Y/N)");
+//                type = sc.next();
+//                if( type == "Y" ) isElder = true;
+//                else isElder = false;
 
                 String sql = " INSERT INTO user  VALUES ( " + "\"" + firstName +
                         "\"" + "," + "\"" + lastName +

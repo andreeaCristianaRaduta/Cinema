@@ -9,7 +9,7 @@ public class Main {
         //admin.addRoom();;
         //admin.editMovie();
         ConnectionConfiguration cc = new ConnectionConfiguration();
-        cc.getAllUsers();
+        ConnectionConfiguration.getAllUsers();
 
     }
 }
