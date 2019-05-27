@@ -13,10 +13,13 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        String loginStatus = Services.login(email, password );
-        if(loginStatus.equals("Login successful"))
+        String loginStatus = Services.login(email, password);
+
+        Services.getUserByEmail(email);
+
+        if (loginStatus.equals("Login successful"))
             resp.sendRedirect("http://localhost:8080/Cinema_war_exploded/movies.jsp");
-        else{
+        else {
             req.setAttribute("loginStatus", loginStatus);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }

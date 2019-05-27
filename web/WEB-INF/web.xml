@@ -34,4 +34,24 @@
         <url-pattern>/movies</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MakeReservServlet</servlet-name>
+        <servlet-class>Servlets.MakeReservServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MakeReservServlet</servlet-name>
+        <url-pattern>/makeReservation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>allReservationsServlet</servlet-name>
+        <servlet-class>Servlets.allReservationsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>allReservationsServlet</servlet-name>
+        <url-pattern>/allReservations</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class RegisterServlet extends HttpServlet {
     @Override
@@ -17,10 +18,15 @@ public class RegisterServlet extends HttpServlet {
         String firstName = req.getParameter("firstName");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User newUser = new User(lastName, firstName, email, password );
+        User newUser = null;
+        try {
+            newUser = new User(lastName, firstName, email, password );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         String registerStatus = Services.createAccount(newUser);
         if(registerStatus.equals("Account has been successfully created.")) {
-            resp.sendRedirect("http://localhost:8080/Cinema_war_exploded/movies.jsp");
+            resp.sendRedirect("http://localhost:8080/Cinema_war_exploded/index.jsp");
             //HttpSession session = req.getSession();
         }
         else {
@@ -28,4 +34,6 @@ public class RegisterServlet extends HttpServlet {
             req.getRequestDispatcher("/register.jsp").forward(req, resp);
         }
     }
+
+
 }

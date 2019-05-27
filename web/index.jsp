@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alli
-  Date: 5/12/2019
-  Time: 7:09 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -16,7 +10,7 @@
   <!-- banner -->
   <div class="">
     <div class="">
-      <h1 style="font-size:100px">Cinama Shalom</h1>
+      <h1 style="font-size:100px">Cinema Shalom</h1>
     </div>
   </div>
   <div>
@@ -28,7 +22,7 @@
       <form method = "post" action = "home">
         <div class="">
           <div>
-            <label for="email">Username: </label>
+            <label for="email">Email: </label>
             <input  type="text" placeholder="Enter Email" name="email" id = "email" required >
           </div>
 
@@ -54,18 +48,14 @@
       </form>
     </div>
 
-    <%--<div class="animated-gif">  ///punem o poza ceva--%>
-      <%--<img src="css/gallery/blank-paper.gif" alt = "quiz gif">--%>
-    <%--</div>--%>
 
 
-
-    <div id="result" class="result">
+    <div id="result" class="">
     <pre>
       ${requestScope.loginStatus}
     </pre>
     </div>
-
+  </div>
 
   </body>
 </html>

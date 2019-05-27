@@ -3,29 +3,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Reservation { ///ne trebuie id la rezervare ca sa existe ceva unic pt PK
-    private Date date;
+
     private Movie movie;
-    private Integer numberOfPeople;
+    private int idUser;
 
 
-    public Reservation() {
+    public Reservation(Movie mv) {
     }
 
-    public Reservation(Date date, Movie movie, Integer numberOfPeople) {
-        this.date = date;
+    public Reservation( Movie movie, int idUser) {
         this.movie = movie;
-        this.numberOfPeople = numberOfPeople;
+        this.idUser=idUser;
     }
 
-
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public Movie getMovie() {
         return movie;
@@ -35,14 +25,13 @@ public class Reservation { ///ne trebuie id la rezervare ca sa existe ceva unic 
         this.movie = movie;
     }
 
-    public Integer getNumberOfPeople() {
-        return numberOfPeople;
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "movie=" + movie +
+                ", idUser=" + idUser +
+                '}' + "\n";
     }
-
-    public void setNumberOfPeople(Integer numberOfPeople) {
-        this.numberOfPeople = numberOfPeople;
-    }
-
 //    public void ocupatingSeats(int seats) { //o fac voi ca sa o apelez cand fac o rezervare si sa-mi arunce o rezervare pentru atunci cand nu mai sunt locuri
 //        while (movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated() > -1 && (movie.getRoom().getNumberOfSeats() - movie.getNrOfSeatsOcupated()) >= seats) {
 //            movie.setNrOfSeatsOcupated(movie.getNrOfSeatsOcupated() + seats);// trebuie un ob de tip rezervare de la care sa pot sa iau nr de locuri

@@ -1,4 +1,6 @@
-<%--
+<%@ page import="main.Movie" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.lang.reflect.Array" %>
   Created by IntelliJ IDEA.
   User: Alli
   Date: 5/26/2019
@@ -14,76 +16,51 @@
 
 </head>
 <body>
-<div class="">
-</div>
+
 <br>
-<form action="http://localhost:8080/Cinma_war_exploded/movies" method="post">
+
+<form action="http://localhost:8080/Cinema_war_exploded/movies" method="post">
     <input type="submit" value="Show movies"/>
 </form>
 
-<div id="result0" class="result">
+<div id="result0" class="">
     <pre>
         ${requestScope.movies}
     </pre>
 </div>
 
+
 <div>
-    <div class = "container1">
+    <form method="post" action="makeReservation">
+        <label for="idMovie">Id-ul filmului: </label>
+        <input  type="text" placeholder="Enter the id" name="idMovie" id = "idMovie" required >
+        <input type="submit" value="Make Rezerv"/>
 
-        <form action="http://localhost:8080/Cinema_war_exploded/shNames" method="POST">
-            <input type="submit" value="Show the ids"/>
-        </form>
+    </form>
+</div>
 
-        <div id="result1" class="result">
-            <pre>
-                ${requestScope.ids}
-            </pre>
-        </div>
+<form method="post" action="makeReservation">
+<div id="result" class="result">
+    <pre>
+        ${requestScope.reservationStatus}
+    </pre>
+</div>
+</form>
 
-        <form action="http://localhost:8080/Cinema_war_exploded/shNames" method="POST">
-            <input type="submit" value="Show the Movies"/>
-        </form>
+<div>
+    <form method="post" action="allReservations">
+        <input type="submit" value="Show Rezerv"/>
 
-        <div id="result2" class="result">
-            <pre>
-                ${requestScope.names}
-            </pre>
-        </div>
+    </form>
+</div>
 
-        <form action="http://localhost:8080/Cinema_war_exploded/shPrice" method="post">
-            <input type="submit" value="Show the price"/>
-        </form>
-
-        <div id="result3" class="result">
-            <pre>
-                ${requestScope.pries}
-            </pre>
-        </div>
-
-        <form action="http://localhost:8080/Cinema_war_exploded/shNames" method="POST">
-            <input type="submit" value="Show the formats"/>
-        </form>
-
-        <div id="result4" class="result">
-            <pre>
-                ${requestScope.formats}
-            </pre>
-        </div>
-        <form action="http://localhost:8080/Cinema_war_exploded/shNames" method="POST">
-            <input type="submit" value="Show the dates"/>
-        </form>
-
-        <div id="result5" class="result">
-            <pre>
-                ${requestScope.dates}
-            </pre>
-        </div>
-        <form action="http://localhost:8080/Cinema_war_exploded/seeTop", method="post">
-            <input type="submit" value="See top" />
-        </form>
-    </div>
-
-
+<form method="post" action="allReservation">
+<div id="result3" class="">
+    <pre>
+        ${requestScope.allReservations}
+    </pre>
+</div>
+</form>
 
 
 </body>

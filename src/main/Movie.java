@@ -38,6 +38,16 @@ public class Movie { //un film trebuie sa aiba o data si o ora
         this.room = room;
     }
 
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", price=" + price +
+                ", format='" + format + '\'' +
+                ", date=" + date +
+                ", room='" + room + '\'' +
+                ", id=" + id  + "\n";
+    }
+
     public String getRoom() {
         return room;
     }
@@ -71,14 +81,14 @@ public class Movie { //un film trebuie sa aiba o data si o ora
     }
 
     public Double getPrice() {
-        if( user.isChild() == true )
-            return price - 0.5*price;
-
-        else if( user.isStudent() == true )
-            return price - 0.25*price;
-
-        else if( user.isElder() == true )
-            return price - 0.30*price;
+//        if( user.isChild() == true )
+//            return price - 0.5*price;
+//
+//        else if( user.isStudent() == true )
+//            return price - 0.25*price;
+//
+//        else if( user.isElder() == true )
+//            return price - 0.30*price;
 
         return price;
     }
